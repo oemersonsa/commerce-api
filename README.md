@@ -1,3 +1,6 @@
+#Commerce API - Spring Boot
+
+```mermaid
 classDiagram
 class Product {
 <<Entity>>
@@ -36,3 +39,4 @@ class CartItem {
 Product "1" -- "*" Order : contains
 Order "1" -- "*" Item : has items
 ShoppingCart "1" -- "*" CartItem : has items
+```
