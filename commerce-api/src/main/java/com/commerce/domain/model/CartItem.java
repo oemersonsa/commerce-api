@@ -3,14 +3,12 @@ package com.commerce.domain.model;
 import jakarta.persistence.*;
 
 @Entity
-public class Item {
-
+public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    private Product product;
+    private Long productId;
 
     private int quantity;
 
@@ -22,12 +20,12 @@ public class Item {
         this.id = id;
     }
 
-    public Product getProduct() {
-        return product;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
     public int getQuantity() {

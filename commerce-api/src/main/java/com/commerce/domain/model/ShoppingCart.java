@@ -4,15 +4,16 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Entity(name = "tb_shopping_cart")
+@Entity
 public class ShoppingCart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "items")
-    private List<Item> items;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "shopping_cart_id")
+    private List<CartItem> items;
 
     public Long getId() {
         return id;
@@ -22,11 +23,11 @@ public class ShoppingCart {
         this.id = id;
     }
 
-    public List<Item> getItems() {
+    public List<CartItem> getItems() {
         return items;
     }
 
-    public void setItems(List<Item> items) {
+    public void setItems(List<CartItem> items) {
         this.items = items;
     }
 }

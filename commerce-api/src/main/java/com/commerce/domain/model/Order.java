@@ -1,25 +1,24 @@
 package com.commerce.domain.model;
 
+import com.commerce.domain.model.Item;
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 import java.util.List;
 
-@Entity(name = "tb_orders")
+@Entity
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
     private String customer;
 
-    @Column(name = "items")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_id")
     private List<Item> items;
 
-    @Column(precision = 13, scale = 2)
-    private BigDecimal total;
+    private double total;
 
     public Long getId() {
         return id;
@@ -37,12 +36,19 @@ public class Order {
         this.customer = customer;
     }
 
+    public List<Item> getItems() {
+        return items;
+    }
 
-    public BigDecimal getTotal() {
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(BigDecimal total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 }
