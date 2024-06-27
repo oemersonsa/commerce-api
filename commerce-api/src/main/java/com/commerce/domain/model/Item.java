@@ -14,6 +14,19 @@ public class Item {
 
     private int quantity;
 
+    public Item() {
+
+    }
+
+    public Item(Long id, Product product, int quantity) {
+        this.id = id;
+        this.product = product;
+        this.quantity = quantity;
+    }
+
+    public Item(Long productId, int quantity) {
+    }
+
     public Long getId() {
         return id;
     }
@@ -33,6 +46,7 @@ public class Item {
     public int getQuantity() {
         return quantity;
     }
+
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;

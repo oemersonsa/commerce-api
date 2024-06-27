@@ -1,12 +1,11 @@
 package com.commerce.domain.model;
 
-import com.commerce.domain.model.Item;
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
-public class Order {
+public class MyOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

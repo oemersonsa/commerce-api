@@ -1,23 +1,12 @@
 package com.commerce.service;
 
-import com.commerce.domain.model.Order;
-import com.commerce.domain.repository.OrderRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.commerce.domain.model.MyOrder;
 
-import java.util.List;
+public interface OrderService {
 
-@Service
-public class OrderService {
+    MyOrder findById(Long id);
 
-    @Autowired
-    private OrderRepository orderRepository;
+    MyOrder create(MyOrder orderToCreate);
 
-    public Order createOrder(Order order) {
-        return orderRepository.save(order);
-    }
 
-    public List<Order> getAllOrders() {
-        return orderRepository.findAll();
-    }
 }
